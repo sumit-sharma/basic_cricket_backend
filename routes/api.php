@@ -14,10 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 
-Route::resource('team', 'TeamController');
-Route::resource('player', 'PlayerController');
+Route::resource('team', 'TeamController')->only(['index', 'show']);
+Route::resource('player', 'PlayerController')->only(['index', 'show']);
+Route::get('point', 'PointController@index');
+Route::get('point/{teamId}', 'PointController@show');
