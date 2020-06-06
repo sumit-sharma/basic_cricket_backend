@@ -1,0 +1,171 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Cannibies API Documentation",
+        "contact": {
+            "name": "Support Team",
+            "email": "support@cannibies.com"
+        },
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/player/{id}": {
+            "get": {
+                "tags": [
+                    "Player"
+                ],
+                "operationId": "/api/player/{id}",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Player Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error: Bad request.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/player": {
+            "get": {
+                "tags": [
+                    "Player"
+                ],
+                "operationId": "/api/player",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error: Bad request.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/team/{id}": {
+            "get": {
+                "tags": [
+                    "Team"
+                ],
+                "operationId": "/api/team/{id}",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Team Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error: Bad request.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/team": {
+            "get": {
+                "tags": [
+                    "Team"
+                ],
+                "operationId": "/api/team",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error: Bad request.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "success": {
+                "description": "Data Object",
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "description": "Oauth2 security",
+                "name": "Authorization",
+                "in": "header",
+                "flows": {
+                    "clientCredentials": {
+                        "tokenUrl": "oauth/token",
+                        "scopes": {}
+                    }
+                },
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            },
+            "basicAuth": {
+                "type": "http",
+                "description": "basic security",
+                "name": "Authorization",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "basic"
+            }
+        }
+    }
+}
