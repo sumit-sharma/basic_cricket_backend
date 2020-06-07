@@ -23,3 +23,4 @@ Route::resource('team', 'TeamController')->only(['index', 'show']);
 Route::resource('player', 'PlayerController')->only(['index', 'show']);
 Route::get('point', 'PointController@index');
 Route::get('point/{teamId}', 'PointController@show');
+Route::get('fixture', 'FixtureController@index');
