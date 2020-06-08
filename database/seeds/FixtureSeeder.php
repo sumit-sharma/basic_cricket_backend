@@ -1,6 +1,7 @@
 <?php
 
 use App\Enums\FixtureStatus;
+use App\Models\Fixture;
 use App\Models\Team;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
@@ -32,13 +33,12 @@ class FixtureSeeder extends Seeder
           'status'  => $matchData['match_status'], 
         ];
         if ($matchData['match_status'] == FixtureStatus::FINISHED) {
-          $fixture['winner'] = array_rand([$key, $value]);
+          $fixture['winner'] = [$key, $value][array_rand([$key, $value])];
         }
           
       }
-      info($fixture);
-      // info(array_key_first($item));
-      // Team::Create($fixture);
+      // info($fixture);
+      Fixture::Create($fixture);
     }
 
   }
@@ -62,7 +62,7 @@ class FixtureSeeder extends Seeder
   {
     $matchStatus = FixtureStatus::TBS;
     $scheduleDate = Carbon::now()->addDay(rand(-5, 20))->toDateString();
-    if ($scheduleDate > Carbon::today()) {
+    if (Carbon::parse($scheduleDate)  < Carbon::today()) {
       $matchStatus = FixtureStatus::FINISHED;
     }
 
